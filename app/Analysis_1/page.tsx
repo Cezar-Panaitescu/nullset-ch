@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+
 import { useState } from "react";
 
 // --- TYPES ---
@@ -210,30 +211,10 @@ export default function AnalysisPage() {
   return (
     <main className="flex min-h-screen flex-col items-center p-6 md:p-12 relative z-10">
       
-      {/* --- 1. TOP BAR --- */}
-      <div className="fixed top-0 left-0 w-full px-6 py-3 flex justify-between items-center text-xs font-mono text-gray-500 bg-black/80 backdrop-blur-md border-b border-surface-light z-50">
-        
-        {/* --- NEW LOGO SECTION --- */}
-        <div className="flex items-center gap-4">
-          <Link href="/" className="flex items-center gap-2 group cursor-pointer">
-             <img 
-               src="/images/neon-icon.png" 
-               alt="Nullset Logo" 
-               className="w-8 h-8 object-contain transition-transform duration-300 group-hover:scale-110" 
-             />
-             <span className="text-white font-bold tracking-wider group-hover:text-math-blue transition-colors">NULLSET</span>
-          </Link>
-        </div>
-
-        <div className="flex items-center gap-4">
-           <span>ONLINE</span>
-           <span className="w-2 h-2 rounded-full bg-math-green animate-pulse"></span>
-        </div>
-      </div>
 
       {/* --- HEADER --- */}
       <div className="mt-24 max-w-6xl w-full mx-auto mb-16">
-        <Link href="/" className="text-xs font-mono text-gray-500 hover:text-white mb-4 block">
+        <Link href="/" className="text-xs font-mono text-gray-300 hover:text-white mb-4 block">
           &lt; ZURÜCK ZUR ÜBERSICHT
         </Link>
         <div className="flex items-center gap-4 mb-4">

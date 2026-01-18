@@ -4,6 +4,7 @@ import { Inter, STIX_Two_Text, JetBrains_Mono } from "next/font/google";
 import "katex/dist/katex.min.css"; // Import KaTeX CSS globally
 import "./globals.css";
 import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
 
 // 2. Configure Inter (The UI/Body)
 const inter = Inter({
@@ -42,6 +43,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${stixTwoText.variable} ${jetbrainsMono.variable} antialiased`}
       >
+        <Navbar />
         {children}
         <Footer />
       </body>

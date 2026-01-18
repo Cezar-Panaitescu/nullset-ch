@@ -1,35 +1,13 @@
 import { InlineMath } from 'react-katex';
 import Link from "next/link";
 
+
+
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center p-6 md:p-12 relative z-10">
       
-     {/* --- 1. TOP BAR --- */}
-<div className="fixed top-0 left-0 w-full px-6 py-3 flex justify-between items-center text-xs font-mono text-gray-500 bg-black/80 backdrop-blur-md border-b border-surface-light z-50">
-  
-  {/* --- NEW LOGO SECTION --- */}
-  <div className="flex items-center gap-4">
-    {/* The Logo Container */}
-    <div className="flex items-center gap-2 group cursor-pointer">
-       {/* REPLACED: Image Icon */}
-       <img 
-         src="/images/neon-icon.png" 
-         alt="Nullset Logo" 
-         className="w-8 h-8 object-contain transition-transform duration-300 group-hover:scale-110" 
-       />
-       
-       {/* The Text */}
-       <span className="text-white font-bold tracking-wider group-hover:text-math-blue transition-colors">NULLSET</span>
-    </div>
-  </div>
-  {/* ------------------------ */}
 
-  <div className="flex items-center gap-4">
-     <span>ONLINE</span>
-     <span className="w-2 h-2 rounded-full bg-math-green animate-pulse"></span>
-  </div>
-</div>
       {/* --- 2. BRAND HERO: The Mission Statement --- */}
       <div className="mt-32 w-full max-w-4xl text-center mb-24">
         <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full border border-math-blue/30 bg-math-blue/10 text-math-blue text-xs font-mono tracking-widest">
@@ -253,72 +231,44 @@ export default function Home() {
         </div>
       </div>
 
-      {/* --- 5. THE LIBRARY GRID --- */}
+      {/* --- 5. ABOUT ME SECTION --- */}
       <div className="w-full max-w-6xl mb-24">
-         <div className="flex items-center justify-between mb-8 border-b border-surface-light pb-4">
-            <h3 className="text-xl font-bold text-white tracking-wide">WEITERE RESSOURCEN</h3>
-            <div className="flex gap-2 text-xs font-mono">
-               <span className="text-math-blue cursor-pointer">MATHE</span>
-               <span className="text-gray-600">/</span>
-               <span className="text-math-orange cursor-pointer">ING</span>
-            </div>
+         <div className="flex items-center gap-4 mb-8">
+             <div className="h-px bg-surface-light grow"></div>
+             <span className="text-xs font-mono text-gray-500 uppercase tracking-widest">Über Mich</span>
+             <div className="h-px bg-surface-light grow"></div>
          </div>
 
-         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+         <div className="flex flex-col md:flex-row gap-8 items-center md:items-start bg-surface/30 p-8 rounded-2xl border border-surface-light hover:border-math-blue/30 transition-colors">
+            {/* Image */}
+            <div className="w-48 h-48 md:w-64 md:h-64 shrink-0 relative rounded-xl overflow-hidden border border-white/10 shadow-2xl transition-all duration-500">
+               <img src="/images/Me.jpeg" alt="Cezar Panaitescu" className="w-full h-full object-cover" />
+               <div className="absolute inset-x-0 bottom-0 h-1/4 bg-linear-to-t from-black/60 to-transparent pointer-events-none"></div>
+            </div>
             
-            {/* Card: Netzwerke */}
-            <div className="group rounded-xl border border-surface-light bg-surface hover:border-math-orange transition-all hover:-translate-y-1 overflow-hidden">
-               <div className="h-32 bg-black relative border-b border-surface-light flex items-center justify-center">
-                  <div className="absolute inset-0 bg-math-orange/5 group-hover:bg-math-orange/10 transition-colors"></div>
-                  <svg className="w-12 h-12 text-math-orange opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-               </div>
-               <div className="p-6">
-                  <h3 className="text-lg font-bold text-white group-hover:text-math-orange transition-colors">Netzwerke</h3>
-                  <p className="text-sm text-gray-400 mt-2">
-                     Schaltkreisanalyse und Wechselstrom.
-                  </p>
-               </div>
+            {/* Text */}
+            <div className="flex-1 space-y-4">
+                <h3 className="text-2xl md:text-3xl font-bold text-white">Hi, ich bin Cezar.</h3>
+                <p className="text-gray-400 leading-relaxed">
+                    Ich studiere Elektrotechnik (5. Semester) an der ETH. Weil Mathe in Vorlesungen oft abstrakt bleibt, habe ich <span className="text-white font-semibold">Nullset</span> gestartet: Ein persönliches Projekt mit dem Ziel, die neuesten Technologien von heute einzusetzen, um komplexe Zusammenhänge der Mathematik greifbar zu machen.
+                </p>
+                <p className="text-gray-400 leading-relaxed">
+                    Als ehemaliger Hilfsassistent für <span className="text-math-orange">Netzwerke und Schaltungen 1</span> und <Link href="/Analysis_1" className="text-math-blue hover:text-math-blue/80 hover:underline transition-all">Analysis 1</Link> (betreut: 100+ Studierende) weiß ich: Klick macht es erst, wenn man die Intuition sieht. Deshalb setze ich auf computergenerierte Animationen (Manim) und direktes visuelles Feedback durch Latex Plots.
+                </p>
+                <p className="text-gray-400 leading-relaxed">
+                    Ab Frühling 2026 unterrichte ich als TA für Signale & Systeme II. Privat bin ich oft im Gym, beim Schwimmen oder höre Hörbücher bei langen Spaziergängen.
+                </p>
             </div>
-
-            {/* Card: Summaries */}
-            <div className="group rounded-xl border border-surface-light bg-surface hover:border-math-green transition-all hover:-translate-y-1 overflow-hidden">
-               <div className="h-32 bg-black relative border-b border-surface-light flex items-center justify-center">
-                  <div className="absolute inset-0 bg-math-green/5 group-hover:bg-math-green/10 transition-colors"></div>
-                  <span className="text-4xl text-math-green opacity-80 flex items-center justify-center">
-                     <InlineMath math="\Sigma" />
-                  </span>
-               </div>
-               <div className="p-6">
-                  <h3 className="text-lg font-bold text-white group-hover:text-math-green transition-colors">Alle Zusammenfassungen</h3>
-                  <p className="text-sm text-gray-400 mt-2">
-                     Direkter Zugriff auf das PDF-Archiv.
-                  </p>
-               </div>
-            </div>
-
-            {/* Card: Archive */}
-            <div className="group rounded-xl border border-surface-light bg-surface hover:border-white transition-all hover:-translate-y-1 overflow-hidden opacity-60 hover:opacity-100">
-               <div className="h-32 bg-black relative border-b border-surface-light flex items-center justify-center">
-                  <div className="absolute inset-0 bg-white/5 group-hover:bg-white/10 transition-colors"></div>
-                  <span className="text-4xl font-mono text-gray-500 group-hover:text-white">...</span>
-               </div>
-               <div className="p-6">
-                  <h3 className="text-lg font-bold text-gray-400 group-hover:text-white transition-colors">Archiv</h3>
-                  <p className="text-sm text-gray-500 mt-2">
-                     Alte Prüfungen und Materialien.
-                  </p>
-               </div>
-            </div>
-
          </div>
       </div>
 
+
       {/* --- CONSTRUCTION DISCLAIMER --- */}
       <div className="w-full max-w-2xl mx-auto mb-12 text-center">
-        <div className="p-4 rounded-lg border border-white/5 text-gray-600 text-xs font-mono leading-relaxed">
+        <div className="p-4 rounded-lg border border-white/5 text-gray-300 text-xs font-mono leading-relaxed">
            Diese Website ist noch am Bauen. Features werden schrittweise veröffentlicht.
            <br/>
-           Vorschläge und Feedback sind jederzeit willkommen an <a href="mailto:cpanaitescu@ethz.ch" className="text-gray-500 hover:text-math-blue underline decoration-gray-700 underline-offset-4 transition-colors">cpanaitescu@ethz.ch</a>
+           Vorschläge und Feedback sind jederzeit willkommen an <a href="mailto:cpanaitescu@ethz.ch" className="text-gray-400 hover:text-math-blue underline decoration-gray-700 underline-offset-4 transition-colors">cpanaitescu@ethz.ch</a>
         </div>
       </div>
 

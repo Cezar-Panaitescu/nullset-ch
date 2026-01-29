@@ -214,8 +214,8 @@ export default function AnalysisPage() {
 
       {/* --- HEADER --- */}
       <div className="mt-24 max-w-6xl w-full mx-auto mb-16">
-        <Link href="/" className="text-xs font-mono text-gray-300 hover:text-white mb-4 block">
-          &lt; ZURÜCK ZUR ÜBERSICHT
+        <Link href="/Kurse" className="text-xs font-mono text-gray-300 hover:text-white mb-4 block">
+          &lt; ZURÜCK ZU DEN KURSEN
         </Link>
         <div className="flex items-center gap-4 mb-4">
            <div className="w-12 h-12 rounded-xl bg-math-blue/10 border border-math-blue/30 flex items-center justify-center text-math-blue">

@@ -75,10 +75,7 @@ export default function KontaktPage() {
   return (
     <main className="flex min-h-screen flex-col items-center p-6 md:p-12 relative z-10 text-white">
       <div className="mt-32 w-full max-w-4xl text-center mb-12">
-        <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full border border-math-blue/30 bg-math-blue/10 text-math-blue text-xs font-mono tracking-widest">
-           <span className="w-1.5 h-1.5 rounded-full bg-math-blue"></span>
-           KONTAKT AUFNEHMEN
-        </div>
+
         
         <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-6">
           Kontakt
@@ -139,9 +136,10 @@ export default function KontaktPage() {
                           <select 
                             name="category"
                             required
+                            defaultValue=""
                             className="w-full bg-linear-to-r from-math-blue/10 to-math-green/10 border border-math-blue/30 text-math-blue p-3 text-sm focus:outline-none focus:border-math-blue transition-colors appearance-none cursor-pointer"
                           >
-                             <option value="" disabled selected>Kategorie auswählen...</option>
+                             <option value="" disabled>Kategorie auswählen...</option>
                              <option value="Frage">"Frage"</option>
                              <option value="Feedback">"Feedback"</option>
                              <option value="Zusammenarbeit">"Zusammenarbeit"</option>
@@ -227,8 +225,9 @@ export default function KontaktPage() {
         </div>
       </div>
 
+      {/* 
       <div className="w-full max-w-2xl grid gap-4">
-        {/* Email Card */}
+        
         <a href="mailto:cpanaitescu@ethz.ch" className="group p-6 rounded-2xl bg-surface/30 border border-surface-light hover:border-math-blue/50 transition-all hover:-translate-y-1 flex items-center justify-between">
             <div className="flex items-center gap-6">
                 <div className="w-12 h-12 rounded-full bg-math-blue/10 flex items-center justify-center text-math-blue">
@@ -244,7 +243,7 @@ export default function KontaktPage() {
             </div>
         </a>
 
-        {/* LinkedIn Card */}
+        
         <a href="https://www.linkedin.com/in/cezar-panaitescu-5007932a7/" target="_blank" rel="noopener noreferrer" className="group p-6 rounded-2xl bg-surface/30 border border-surface-light hover:border-[#0077b5]/50 transition-all hover:-translate-y-1 flex items-center justify-between">
             <div className="flex items-center gap-6">
                 <div className="w-12 h-12 rounded-full bg-[#0077b5]/10 flex items-center justify-center text-[#0077b5]">
@@ -260,7 +259,7 @@ export default function KontaktPage() {
             </div>
         </a>
 
-        {/* Instagram Card */}
+        
         <a href="https://www.instagram.com/cezarpanaitescu/" target="_blank" rel="noopener noreferrer" className="group p-6 rounded-2xl bg-surface/30 border border-surface-light hover:border-[#E1306C]/50 transition-all hover:-translate-y-1 flex items-center justify-between">
             <div className="flex items-center gap-6">
                 <div className="w-12 h-12 rounded-full bg-[#E1306C]/10 flex items-center justify-center text-[#E1306C]">
@@ -276,6 +275,7 @@ export default function KontaktPage() {
             </div>
         </a>
       </div>
+      */}
     </main>
   );
 }

@@ -82,7 +82,6 @@ export default function Home() {
       </div>
 
       {/* --- 5. ABOUT ME SECTION --- */}
-      {/* 
       <div className="w-full max-w-6xl mb-24">
          <div className="flex items-center gap-4 mb-8">
              <div className="h-px bg-surface-light grow"></div>
@@ -107,12 +106,11 @@ export default function Home() {
                     Als ehemaliger Hilfsassistent für <span className="text-math-orange">Netzwerke und Schaltungen 1</span> und <Link href="/Kurse/Analysis_1" className="text-math-blue hover:text-math-blue/80 hover:underline transition-all">Analysis 1</Link> (betreut: 100+ Studierende) weiß ich: Klick macht es erst, wenn man die Intuition sieht. Deshalb setze ich auf computergenerierte Animationen (Manim) und direktes visuelles Feedback durch Latex Plots.
                 </p>
                 <p className="text-gray-400 leading-relaxed">
-                    Ab Frühling 2026 unterrichte ich als TA für Signale & Systeme II. Privat bin ich oft im Gym, beim Schwimmen oder höre Hörbücher bei langen Spaziergängen.
+                    Ab Frühling 2026 unterrichte ich als TA für Signals & Systems II. Privat bin ich oft im Gym, beim Schwimmen oder höre Hörbücher bei langen Spaziergängen.
                 </p>
             </div>
          </div>
       </div>
-      */}
 
 
       {/* --- CONSTRUCTION DISCLAIMER --- */}

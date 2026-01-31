@@ -17,15 +17,18 @@ export default function Navbar() {
     <div className="fixed top-0 left-0 w-full px-6 py-4 flex justify-between items-center text-xs font-mono text-gray-400 bg-white/2 backdrop-blur-md border-b border-white/10 z-50 transition-all duration-300 hover:bg-white/4">
       
       {/* --- LOGO SECTION --- */}
-      <div className="flex items-center gap-4">
+     <div className="flex items-center gap-4">
         <Link href="/" className="flex items-center gap-3 group cursor-pointer">
            <img 
              src="/images/neon-icon.png" 
              alt="Nullset Logo" 
              className="w-8 h-8 object-contain transition-transform duration-300 group-hover:scale-110" 
            />
-           {/* Added cyan-400 hover to match your headline style */}
-           <span className="text-white font-bold tracking-wider group-hover:text-cyan-400 transition-colors">Nullset</span>
+           
+           {/* CHANGE HERE: added 'hidden sm:block' so text vanishes on phone but appears on desktop */}
+           <span className="hidden sm:block text-white font-bold tracking-wider group-hover:text-cyan-400 transition-colors">
+             Nullset
+           </span>
         </Link>
       </div>
 

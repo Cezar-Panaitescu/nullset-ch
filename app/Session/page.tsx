@@ -2,12 +2,13 @@
 
 import Link from "next/link";
 import Script from "next/script";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function SessionPage() {
   const [selectedType, setSelectedType] = useState<string | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeCalendlyUrl, setActiveCalendlyUrl] = useState<string | null>(null);
+  const [isCalendlyLoading, setIsCalendlyLoading] = useState(true);
 
   const CALENDLY_URLS = {
     coaching: "https://calendly.com/cezar-panaitescu71/1-1-coaching",
@@ -18,8 +19,42 @@ export default function SessionPage() {
 
   const openBookingModal = (url: string) => {
     setActiveCalendlyUrl(url);
+    setIsCalendlyLoading(true);
     setIsModalOpen(true);
   };
+
+  useEffect(() => {
+    if (isModalOpen && isCalendlyLoading) {
+      // Small timeout to ensure DOM is ready
+      const checkTimer = setTimeout(() => {
+         const container = document.getElementById('calendly-container');
+         if (container) {
+           const observer = new MutationObserver((mutations) => {
+             for (const mutation of mutations) {
+               if (mutation.addedNodes.length > 0) {
+                  // Check if an iframe was added
+                  const hasIframe = Array.from(mutation.addedNodes).some(
+                    (node) => node.nodeName === 'IFRAME'
+                  );
+                  if (hasIframe) {
+                    // Iframe added, wait a moment for internal render then hide loader
+                    setTimeout(() => setIsCalendlyLoading(false), 1000);
+                    observer.disconnect();
+                  }
+               }
+             }
+           });
+           
+           observer.observe(container, { childList: true });
+           
+           // Cleanup observer
+           return () => observer.disconnect();
+         }
+      }, 100);
+      
+      return () => clearTimeout(checkTimer);
+    }
+  }, [isModalOpen, isCalendlyLoading]);
 
   const sessionTypes = [
     {
@@ -198,8 +233,20 @@ export default function SessionPage() {
               </button>
 
             {/* Calendly Embed */}
-            <div className="w-full">
+            <div className="w-full relative min-h-[400px]">
+               {/* Loading Overlay */}
+               {isCalendlyLoading && (
+                 <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-[#050505] text-center p-6 animate-in fade-in duration-300">
+                    <div className="w-12 h-12 border-2 border-surface-light border-t-math-blue rounded-full animate-spin mb-6"></div>
+                    <div className="text-white font-bold text-lg mb-2">Kalender wird geladen..</div>
+                    <div className="text-gray-500 text-sm">
+                      Dauert zu lange? <button onClick={() => window.location.reload()} className="text-math-blue hover:underline">Versuche, die Seite neu zu laden.</button>
+                    </div>
+                 </div>
+               )}
+
                <div 
+                  id="calendly-container"
                   className="calendly-inline-widget w-full" 
                   data-url={`${activeCalendlyUrl}?background_color=050505&text_color=ffffff&primary_color=00A0E0`}
                   style={{ minWidth: '320px', height: '1000px' }} 

@@ -1,60 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import Script from "next/script";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function SessionPage() {
   const [selectedType, setSelectedType] = useState<string | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [activeCalendlyUrl, setActiveCalendlyUrl] = useState<string | null>(null);
-  const [isCalendlyLoading, setIsCalendlyLoading] = useState(true);
+  const router = useRouter();
 
-  const CALENDLY_URLS = {
-    coaching: "https://calendly.com/cezar-panaitescu71/1-1-coaching",
-    exam: "https://calendly.com/cezar-panaitescu71/prufungsvorbereitung",
-    group1h: "https://calendly.com/cezar-panaitescu71/gruppen-session-1-stunde",
-    group2h: "https://calendly.com/cezar-panaitescu71/gruppen-session-2-stunden"
+  const handleBooking = (type: string) => {
+    router.push(`/buchen?session=${type}`);
   };
-
-  const openBookingModal = (url: string) => {
-    setActiveCalendlyUrl(url);
-    setIsCalendlyLoading(true);
-    setIsModalOpen(true);
-  };
-
-  useEffect(() => {
-    if (isModalOpen && isCalendlyLoading) {
-      // Small timeout to ensure DOM is ready
-      const checkTimer = setTimeout(() => {
-         const container = document.getElementById('calendly-container');
-         if (container) {
-           const observer = new MutationObserver((mutations) => {
-             for (const mutation of mutations) {
-               if (mutation.addedNodes.length > 0) {
-                  // Check if an iframe was added
-                  const hasIframe = Array.from(mutation.addedNodes).some(
-                    (node) => node.nodeName === 'IFRAME'
-                  );
-                  if (hasIframe) {
-                    // Iframe added, wait a moment for internal render then hide loader
-                    setTimeout(() => setIsCalendlyLoading(false), 1000);
-                    observer.disconnect();
-                  }
-               }
-             }
-           });
-           
-           observer.observe(container, { childList: true });
-           
-           // Cleanup observer
-           return () => observer.disconnect();
-         }
-      }, 100);
-      
-      return () => clearTimeout(checkTimer);
-    }
-  }, [isModalOpen, isCalendlyLoading]);
 
   const sessionTypes = [
     {
@@ -164,13 +120,13 @@ export default function SessionPage() {
             {selectedType === 'group' ? (
               <>
                  <button 
-                  onClick={() => openBookingModal(CALENDLY_URLS.group1h)}
+                  onClick={() => handleBooking('gruppen-1')}
                   className="px-6 py-3 rounded-full bg-linear-to-r from-yellow-400 to-orange-500 text-black font-bold tracking-widest hover:brightness-110 shadow-[0_0_20px_rgba(255,165,0,0.3)] transition-all text-sm"
                 >
                   1 STUNDE
                 </button>
                 <button 
-                  onClick={() => openBookingModal(CALENDLY_URLS.group2h)}
+                  onClick={() => handleBooking('gruppen-2')}
                   className="px-6 py-3 rounded-full bg-linear-to-r from-math-orange to-math-red text-white font-bold tracking-widest hover:brightness-110 shadow-[0_0_20px_rgba(255,100,0,0.3)] transition-all text-sm"
                 >
                   2 STUNDEN
@@ -179,8 +135,8 @@ export default function SessionPage() {
             ) : (
               <button 
                 onClick={() => {
-                   if (selectedType === 'coaching') openBookingModal(CALENDLY_URLS.coaching);
-                   if (selectedType === 'exam') openBookingModal(CALENDLY_URLS.exam);
+                   if (selectedType === 'coaching') handleBooking('1-1');
+                   if (selectedType === 'exam') handleBooking('prufungsvorbereitung');
                 }}
                 className={`px-8 py-3 rounded-full bg-linear-to-r text-black font-bold tracking-widest hover:brightness-110 shadow-lg transition-all ${
                   selectedType === 'exam' 
@@ -194,72 +150,6 @@ export default function SessionPage() {
           </div>
         </div>
       </div>
-
-      {/* Booking Modal Overlay */}
-      {isModalOpen && activeCalendlyUrl && (
-        <div className="fixed inset-0 z-50 flex items-end md:items-center justify-center">
-          {/* Backdrop with Blur */}
-          <div 
-            className="absolute inset-0 bg-black/60 backdrop-blur-[5px] transition-opacity duration-300"
-            onClick={() => setIsModalOpen(false)}
-          ></div>
-
-          {/* Modal Container */}
-          <div 
-            className={`
-              relative z-10 w-full md:w-[1200px] max-w-[95vw] h-[80vh] md:h-[80vh] md:max-h-[850px]
-              bg-[#050505] border border-surface-light rounded-t-2xl md:rounded-2xl 
-              shadow-2xl overflow-y-auto
-              
-              /* Hide Scrollbar */
-              [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']
-              
-              /* Desktop Animation: Fade & Scale */
-              animate-in fade-in zoom-in-95 duration-700
-              md:zoom-in-95 md:fade-in
-
-              /* Mobile Animation: Slide Up */
-              slide-in-from-bottom
-            `}
-          >
-             {/* Close Button */}
-             <button 
-                onClick={() => setIsModalOpen(false)}
-                className="absolute top-4 right-4 z-20 p-2 text-gray-400 hover:text-white transition-colors rounded-full hover:bg-white/10"
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-
-            {/* Calendly Embed */}
-            <div className="w-full relative min-h-[400px]">
-               {/* Loading Overlay */}
-               {isCalendlyLoading && (
-                 <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-[#050505] text-center p-6 animate-in fade-in duration-300">
-                    <div className="w-12 h-12 border-2 border-surface-light border-t-math-blue rounded-full animate-spin mb-6"></div>
-                    <div className="text-white font-bold text-lg mb-2">Kalender wird geladen..</div>
-                    <div className="text-gray-500 text-sm">
-                      Dauert zu lange? <button onClick={() => window.location.reload()} className="text-math-blue hover:underline">Versuche, die Seite neu zu laden.</button>
-                    </div>
-                 </div>
-               )}
-
-               <div 
-                  id="calendly-container"
-                  className="calendly-inline-widget w-full" 
-                  data-url={`${activeCalendlyUrl}?background_color=050505&text_color=ffffff&primary_color=00A0E0`}
-                  style={{ minWidth: '320px', height: '1000px' }} 
-                />
-                <Script 
-                  type="text/javascript" 
-                  src="https://assets.calendly.com/assets/external/widget.js" 
-                  async 
-                />
-            </div>
-          </div>
-        </div>
-      )}
 
     </main>
   );

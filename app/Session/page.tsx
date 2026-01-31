@@ -45,7 +45,7 @@ export default function SessionPage() {
       title: "Gruppen-Session",
       subtitle: "Lernen im Team",
       price: "30 CHF / p.P.",
-      features: ["Max. 4 Personen", "Gemeinsames Lösen von Aufgaben", "Peer-Learning Effekt"],
+      features: ["Max. 4 Personen", "Gemeinsames Lösen von Aufgaben", "Peer-Learning Effekt", "Preis pro Stunde"],
       popular: false,
       gradient: "from-orange-400 to-red-500"
     }
@@ -130,7 +130,7 @@ export default function SessionPage() {
               <>
                  <button 
                   onClick={() => openBookingModal(CALENDLY_URLS.group1h)}
-                  className="px-6 py-3 rounded-full bg-white/10 text-white font-bold tracking-widest hover:bg-white/20 border border-white/10 transition-all text-sm"
+                  className="px-6 py-3 rounded-full bg-linear-to-r from-yellow-400 to-orange-500 text-black font-bold tracking-widest hover:brightness-110 shadow-[0_0_20px_rgba(255,165,0,0.3)] transition-all text-sm"
                 >
                   1 STUNDE
                 </button>

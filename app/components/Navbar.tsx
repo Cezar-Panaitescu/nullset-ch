@@ -52,7 +52,7 @@ export default function Navbar() {
         {/* 1:1 Session Button - Prominent Gradient Style */}
         <Link 
           href="/Session" 
-          className="hidden sm:flex relative group items-center justify-center px-5 py-2 rounded-full bg-linear-to-r from-math-blue/80 to-math-green/80 hover:from-math-blue hover:to-math-green text-white font-bold tracking-wide text-xs shadow-lg shadow-math-blue/25 transition-all duration-300 hover:scale-[1.03] hover:shadow-math-blue/40 hover:brightness-110"
+          className="sm:flex relative group items-center justify-center px-5 py-2 rounded-full bg-linear-to-r from-math-blue/80 to-math-green/80 hover:from-math-blue hover:to-math-green text-white font-bold tracking-wide text-xs shadow-lg shadow-math-blue/25 transition-all duration-300 hover:scale-[1.03] hover:shadow-math-blue/40 hover:brightness-110"
         >
           Session buchen
         </Link>

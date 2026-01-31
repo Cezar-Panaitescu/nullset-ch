@@ -1,10 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import Script from "next/script";
 import { useState } from "react";
 
 export default function SessionPage() {
   const [selectedType, setSelectedType] = useState<string | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const sessionTypes = [
     {
@@ -101,7 +103,7 @@ export default function SessionPage() {
       </div>
 
       {/* Booking Action Area - Only visible when selected */}
-      <div className={`fixed bottom-0 left-0 w-full bg-[#050505]/90 backdrop-blur-xl border-t border-white/10 p-6 flex justify-center transform transition-transform duration-500 ${selectedType ? 'translate-y-0' : 'translate-y-full'}`}>
+      <div className={`fixed bottom-0 left-0 w-full bg-[#050505]/90 backdrop-blur-xl border-t border-white/10 p-6 flex justify-center transform transition-transform duration-500 z-40 ${selectedType ? 'translate-y-0' : 'translate-y-full'}`}>
         <div className="w-full max-w-4xl flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="text-center md:text-left">
             <div className="text-sm text-gray-400 font-mono">DEINE AUSWAHL</div>
@@ -110,11 +112,75 @@ export default function SessionPage() {
             </div>
           </div>
           
-          <button className="px-8 py-3 rounded-full bg-linear-to-r from-math-blue to-math-green text-black font-bold tracking-widest hover:brightness-110 shadow-[0_0_20px_rgba(0,160,224,0.3)] transition-all">
+          <button 
+            onClick={() => {
+              if (selectedType === 'coaching') {
+                setIsModalOpen(true);
+              } else {
+                // Handle other types if needed, or do nothing
+                console.log("Only coaching has a modal currently");
+              }
+            }}
+            className="px-8 py-3 rounded-full bg-linear-to-r from-math-blue to-math-green text-black font-bold tracking-widest hover:brightness-110 shadow-[0_0_20px_rgba(0,160,224,0.3)] transition-all"
+          >
             VERFÜGBARKEIT PRÜFEN
           </button>
         </div>
       </div>
+
+      {/* Booking Modal Overlay */}
+      {isModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-end md:items-center justify-center">
+          {/* Backdrop with Blur */}
+          <div 
+            className="absolute inset-0 bg-black/60 backdrop-blur-[5px] transition-opacity duration-300"
+            onClick={() => setIsModalOpen(false)}
+          ></div>
+
+          {/* Modal Container */}
+          <div 
+            className={`
+              relative z-10 w-full md:w-[1200px] max-w-[95vw] h-[80vh] md:h-[80vh] md:max-h-[850px]
+              bg-[#050505] border border-surface-light rounded-t-2xl md:rounded-2xl 
+              shadow-2xl overflow-y-auto
+              
+              /* Hide Scrollbar */
+              [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']
+              
+              /* Desktop Animation: Fade & Scale */
+              animate-in fade-in zoom-in-95 duration-700
+              md:zoom-in-95 md:fade-in
+
+              /* Mobile Animation: Slide Up */
+              slide-in-from-bottom
+            `}
+          >
+             {/* Close Button */}
+             <button 
+                onClick={() => setIsModalOpen(false)}
+                className="absolute top-4 right-4 z-20 p-2 text-gray-400 hover:text-white transition-colors rounded-full hover:bg-white/10"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+
+            {/* Calendly Embed */}
+            <div className="w-full">
+               <div 
+                  className="calendly-inline-widget w-full" 
+                  data-url="https://calendly.com/cezar-panaitescu71/1-1-coaching?background_color=050505&text_color=ffffff&primary_color=00A0E0" 
+                  style={{ minWidth: '320px', height: '1000px' }} 
+                />
+                <Script 
+                  type="text/javascript" 
+                  src="https://assets.calendly.com/assets/external/widget.js" 
+                  async 
+                />
+            </div>
+          </div>
+        </div>
+      )}
 
     </main>
   );

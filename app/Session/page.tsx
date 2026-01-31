@@ -7,6 +7,19 @@ import { useState } from "react";
 export default function SessionPage() {
   const [selectedType, setSelectedType] = useState<string | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [activeCalendlyUrl, setActiveCalendlyUrl] = useState<string | null>(null);
+
+  const CALENDLY_URLS = {
+    coaching: "https://calendly.com/cezar-panaitescu71/1-1-coaching",
+    exam: "https://calendly.com/cezar-panaitescu71/prufungsvorbereitung",
+    group1h: "https://calendly.com/cezar-panaitescu71/gruppen-session-1-stunde",
+    group2h: "https://calendly.com/cezar-panaitescu71/gruppen-session-2-stunden"
+  };
+
+  const openBookingModal = (url: string) => {
+    setActiveCalendlyUrl(url);
+    setIsModalOpen(true);
+  };
 
   const sessionTypes = [
     {
@@ -112,24 +125,43 @@ export default function SessionPage() {
             </div>
           </div>
           
-          <button 
-            onClick={() => {
-              if (selectedType === 'coaching') {
-                setIsModalOpen(true);
-              } else {
-                // Handle other types if needed, or do nothing
-                console.log("Only coaching has a modal currently");
-              }
-            }}
-            className="px-8 py-3 rounded-full bg-linear-to-r from-math-blue to-math-green text-black font-bold tracking-widest hover:brightness-110 shadow-[0_0_20px_rgba(0,160,224,0.3)] transition-all"
-          >
-            VERFÜGBARKEIT PRÜFEN
-          </button>
+          <div className="flex gap-4">
+            {selectedType === 'group' ? (
+              <>
+                 <button 
+                  onClick={() => openBookingModal(CALENDLY_URLS.group1h)}
+                  className="px-6 py-3 rounded-full bg-white/10 text-white font-bold tracking-widest hover:bg-white/20 border border-white/10 transition-all text-sm"
+                >
+                  1 STUNDE
+                </button>
+                <button 
+                  onClick={() => openBookingModal(CALENDLY_URLS.group2h)}
+                  className="px-6 py-3 rounded-full bg-linear-to-r from-math-orange to-math-red text-white font-bold tracking-widest hover:brightness-110 shadow-[0_0_20px_rgba(255,100,0,0.3)] transition-all text-sm"
+                >
+                  2 STUNDEN
+                </button>
+              </>
+            ) : (
+              <button 
+                onClick={() => {
+                   if (selectedType === 'coaching') openBookingModal(CALENDLY_URLS.coaching);
+                   if (selectedType === 'exam') openBookingModal(CALENDLY_URLS.exam);
+                }}
+                className={`px-8 py-3 rounded-full bg-linear-to-r text-black font-bold tracking-widest hover:brightness-110 shadow-lg transition-all ${
+                  selectedType === 'exam' 
+                    ? 'from-purple-500 to-pink-500 text-white shadow-[0_0_20px_rgba(192,38,211,0.3)]' 
+                    : 'from-math-blue to-math-green shadow-[0_0_20px_rgba(0,160,224,0.3)]'
+                }`}
+              >
+                VERFÜGBARKEIT PRÜFEN
+              </button>
+            )}
+          </div>
         </div>
       </div>
 
       {/* Booking Modal Overlay */}
-      {isModalOpen && (
+      {isModalOpen && activeCalendlyUrl && (
         <div className="fixed inset-0 z-50 flex items-end md:items-center justify-center">
           {/* Backdrop with Blur */}
           <div 
@@ -169,7 +201,7 @@ export default function SessionPage() {
             <div className="w-full">
                <div 
                   className="calendly-inline-widget w-full" 
-                  data-url="https://calendly.com/cezar-panaitescu71/1-1-coaching?background_color=050505&text_color=ffffff&primary_color=00A0E0" 
+                  data-url={`${activeCalendlyUrl}?background_color=050505&text_color=ffffff&primary_color=00A0E0`}
                   style={{ minWidth: '320px', height: '1000px' }} 
                 />
                 <Script 

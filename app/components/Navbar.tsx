@@ -9,7 +9,7 @@ export default function Navbar() {
   const navLinks = [
     { name: "KONTAKT", href: "/Kontakt" },
     { name: "KURSE", href: "/Kurse" },
-    { name: "ARCHIV", href: "#" },
+
   ];
 
   return (

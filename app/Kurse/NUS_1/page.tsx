@@ -316,11 +316,11 @@ export default function NUS1Page() {
                               <div className={`w-8 h-8 rounded-full flex items-center justify-center font-mono text-sm font-bold bg-black border ${module.borderColor} ${module.textColor}`}>
                                  {week.number}
                               </div>
-                              <div>
-                                 <h3 className="text-white font-bold text-lg flex items-center gap-3">
-                                    {week.topic}
+                              <div className="overflow-hidden">
+                                 <h3 className="text-white font-bold text-lg flex flex-wrap items-center gap-3 wrap-break-word">
+                                    <span className="wrap-break-word">{week.topic}</span>
                                     {week.hasManim && (
-                                       <span className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-black border border-math-green/30 text-math-green text-[10px] font-mono uppercase tracking-wider">
+                                       <span className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-black border border-math-green/30 text-math-green text-[10px] font-mono uppercase tracking-wider shrink-0">
                                           <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                                           Animation
                                        </span>

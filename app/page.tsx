@@ -57,16 +57,16 @@ export default function Home() {
          </div>
 
          {/* Pillar 3: Quizzes */}
-         <div className="group p-6 rounded-xl bg-surface/30 border border-surface-light hover:border-math-purple/50 transition-all hover:-translate-y-1">
+         <Link href="/Quiz" className="group p-6 rounded-xl bg-surface/30 border border-surface-light hover:border-math-purple/50 transition-all hover:-translate-y-1">
             <div className="w-12 h-12 mb-4 bg-math-purple/10 rounded-lg flex items-center justify-center text-math-purple border border-math-purple/20">
                {/* Icon: Brain/Lightning */}
                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
             </div>
             <h3 className="text-white font-bold text-xl mb-2 group-hover:text-math-purple transition-colors">Interaktive Quizzes</h3>
-<p className="text-gray-400 text-sm leading-relaxed">
-   Vom bloßen Auswendiglernen zum echten Begreifen. Teste deine Theoriesicherheit direkt im Browser.
-</p>
-         </div>
+            <p className="text-gray-400 text-sm leading-relaxed">
+               Vom bloßen Auswendiglernen zum echten Begreifen. Teste deine Theoriesicherheit direkt im Browser.
+            </p>
+         </Link>
 
       </div>
 

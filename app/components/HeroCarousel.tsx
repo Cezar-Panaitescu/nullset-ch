@@ -9,6 +9,17 @@ export default function HeroCarousel() {
 
   const slides = [
     {
+      id: "signals",
+      title: "Signals and Systems II",
+      badge: "Coming Soon",
+      description: "Time and frequency domain analysis, Modelling, Discrete Systems",
+      statusTitle: "PREVIEW",
+      statusText: "\"Course starts on the 23rd of February 2026.\"",
+      primaryAction: { text: "COMING SOON", href: "#", disabled: true },
+      secondaryAction: { text: "START QUIZ", disabled: true },
+      visual: "signals-image"
+    },
+    {
       id: "analysis",
       title: "Analysis I",
       badge: "Aktuell",
@@ -18,17 +29,6 @@ export default function HeroCarousel() {
       primaryAction: { text: "KURS ÖFFNEN", href: "/Kurse/Analysis_1" },
       secondaryAction: { text: "QUIZ STARTEN" },
       visual: "epsilon-delta" // formatting flag
-    },
-    {
-      id: "signals",
-      title: "Signals and Systems II",
-      badge: "Coming Soon",
-      description: "Time and frequency domain analysis, Modelling, Discrete Systems",
-      statusTitle: "PREVIEW",
-      statusText: "\"Course starts in Spring 2026.\"",
-      primaryAction: { text: "COMING SOON", href: "#", disabled: true },
-      secondaryAction: { text: "START QUIZ", disabled: true },
-      visual: "signals-image"
     }
   ];
 

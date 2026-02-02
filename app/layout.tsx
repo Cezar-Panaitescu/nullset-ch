@@ -5,6 +5,7 @@ import "katex/dist/katex.min.css"; // Import KaTeX CSS globally
 import "./globals.css";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
+import { AdminProvider } from "./context/AdminContext";
 
 // 2. Configure Inter (The UI/Body)
 const inter = Inter({
@@ -43,9 +44,11 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${stixTwoText.variable} ${jetbrainsMono.variable} antialiased`}
       >
-        <Navbar />
-        {children}
-        <Footer />
+        <AdminProvider>
+            <Navbar />
+            {children}
+            <Footer />
+        </AdminProvider>
       </body>
     </html>
   );

@@ -19,7 +19,7 @@ export default function SessionPage() {
       subtitle: "Individuelle Betreuung",
       price: "60 CHF / h",
       features: ["Persönliche Fragen klären", "Optimierung der Lernstrategie", "Deep Dive in komplexe Themen"],
-      popular: false,
+      popular: true,
       gradient: "from-math-blue to-math-green"
     },
     {
@@ -28,7 +28,7 @@ export default function SessionPage() {
       subtitle: "Gezielte Vorbereitung",
       price: "150 CHF / 2.5h Intensiv-Block",
       features: ["Simulation von Prüfungen", "Korrektur & Feedback", "Personalisierte Unterlagen", "Fokus auf Schwachstellen"],
-      popular: true,
+      popular: false,
       gradient: "from-purple-500 to-pink-500"
     },
     {
@@ -71,7 +71,7 @@ export default function SessionPage() {
             
             {session.popular && (
               <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-linear-to-r from-math-blue to-math-green text-black text-[10px] font-bold px-3 py-1 rounded-full tracking-widest uppercase">
-                Most Popular
+                Beliebt
               </div>
             )}
 

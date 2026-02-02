@@ -2,30 +2,30 @@
 
 @theme {
   /* --- 1. THE NULLSET PALETTE (From your LaTeX) --- */
-  
+
   /* Backgrounds */
   --color-background: #000000;
-  --color-surface: #080808;       /* RGB 8,8,8 */
+  --color-surface: #080808; /* RGB 8,8,8 */
   --color-surface-light: #202020; /* 3B1BGray */
 
   /* Math Accents */
-  --color-math-blue: #00A0E0;    /* 3B1BBlue */
-  --color-math-green: #50C878;   /* 3B1BGreen */
-  --color-math-red: #FF0055;     /* 3B1BRed */
-  --color-math-yellow: #FFD700;  /* 3B1BYellow */
-  --color-math-orange: #FF8C00;  /* 3B1BOrange */
-  --color-math-purple: #C179B9;  /* MyPurple */
-  --color-math-magenta: #E000A0; /* AccentMagenta */
-  --color-math-pink: #FF008C;    /* 3B1BMagenta */
+  --color-math-blue: #00a0e0; /* 3B1BBlue */
+  --color-math-green: #50c878; /* 3B1BGreen */
+  --color-math-red: #ff0055; /* 3B1BRed */
+  --color-math-yellow: #ffd700; /* 3B1BYellow */
+  --color-math-orange: #ff8c00; /* 3B1BOrange */
+  --color-math-purple: #c179b9; /* MyPurple */
+  --color-math-magenta: #e000a0; /* AccentMagenta */
+  --color-math-pink: #ff008c; /* 3B1BMagenta */
 
   /* LaTeX Preamble Colors */
-  --color-stripe-emerald: #00FF9A;      /* StripeEmerald */
-  --color-azure-singularity: #00C4FF;   /* AzureSingularity */
-  --color-magenta-pulse: #E15AF0;       /* MagentaPulse */
-  --color-amber-core: #FFC857;          /* AmberCore */
-  --color-crimson-drift: #FF3B3B;       /* CrimsonDrift */
-  --color-ultraviolet-void: #8C4BFF;    /* UltravioletVoid */
-  
+  --color-stripe-emerald: #00ff9a; /* StripeEmerald */
+  --color-azure-singularity: #00c4ff; /* AzureSingularity */
+  --color-magenta-pulse: #e15af0; /* MagentaPulse */
+  --color-amber-core: #ffc857; /* AmberCore */
+  --color-crimson-drift: #ff3b3b; /* CrimsonDrift */
+  --color-ultraviolet-void: #8c4bff; /* UltravioletVoid */
+
   /* Fonts */
   --font-mono: "Fira Code", "Courier New", monospace;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
@@ -54,7 +54,7 @@ body::before {
   width: 100%;
   height: 100%;
   /* Subtle Gray Grid (approx black!60 opacity) */
-  background-image: 
+  background-image:
     linear-gradient(to right, #1a1a1a 1px, transparent 1px),
     linear-gradient(to bottom, #1a1a1a 1px, transparent 1px);
   background-size: 40px 40px;
@@ -67,4 +67,20 @@ body::before {
 ::selection {
   background: var(--color-math-blue);
   color: #000000;
+}
+
+/* --- 4. ANIMATIONS --- */
+@keyframes slide-in-right {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.5s ease-out forwards;
 }

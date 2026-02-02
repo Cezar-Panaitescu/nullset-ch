@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function QuizPage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-6 relative z-10">
+    <main className="flex min-h-screen flex-col items-center justify-start pt-32 p-6 relative z-10">
       
       {/* Background Ambience */}
       <div className="fixed inset-0 pointer-events-none z-0">

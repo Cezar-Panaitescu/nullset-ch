@@ -55,7 +55,7 @@ export default function HeroCarousel() {
   const renderSlideContent = (slide: typeof slides[0]) => (
     <>
       {/* Left: Content */}
-      <div className="p-6 md:p-8 md:w-3/5 z-10 flex flex-col justify-between h-full md:pl-16 shrink-0">
+      <div className="p-6 md:p-8 md:w-3/5 z-10 flex flex-col justify-between md:h-full md:pl-16">
         <div>
           <div className="inline-flex items-center gap-2 mb-4">
             <span className={`px-2 py-1 rounded text-xs font-mono border ${slide.badge === 'Coming Soon' ? 'bg-math-purple/10 text-math-purple border-math-purple/20' : 'bg-math-blue/10 text-math-blue border-math-blue/20'}`}>
@@ -103,7 +103,7 @@ export default function HeroCarousel() {
       </div>
 
       {/* Right: Visual Abstract */}
-      <div className="w-full md:w-2/5 h-[250px] md:h-auto md:min-h-[300px] bg-black md:border-l border-t md:border-t-0 border-surface-light flex items-center justify-center relative overflow-hidden shrink-0">
+      <div className="w-full md:w-2/5 h-[200px] md:h-auto md:min-h-[300px] bg-black md:border-l border-t md:border-t-0 border-surface-light flex items-center justify-center relative overflow-hidden">
         
         {slide.visual === 'epsilon-delta' && (
           <svg viewBox="0 0 320 250" className="w-full h-full p-4 max-w-[400px]" preserveAspectRatio="xMidYMid meet">

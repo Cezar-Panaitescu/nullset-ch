@@ -19,12 +19,12 @@ export default function Home() {
         <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-6">
           Mathematik, <br/>
           <span className="text-transparent bg-clip-text bg-linear-to-r from-math-blue to-math-green">
-            intuitiv & visuell.
+            schnell & intuitiv.
           </span>
         </h1>
         
         <p className="text-lg md:text-xl text-gray-400 font-light leading-relaxed max-w-2xl mx-auto">
-          Eine Ressourcen-Plattform für <strong>Universitätsstudenten</strong> und alle, die höhere Mathematik lernen wollen. Fokus auf Intuition.
+          Effiziente Prüfungsvorbereitung mit kompakter Theorie und Online Aufgaben.
         </p>
       </div>
 
@@ -40,7 +40,7 @@ export default function Home() {
             </div>
             <h3 className="text-white font-bold text-xl mb-2 group-hover:text-math-blue transition-colors">Visuelle Erklärungen</h3>
             <p className="text-gray-400 text-sm leading-relaxed">
-               Komplexe Konzepte werden durch Plots und <span className="text-white font-mono text-xs">MANIM</span>-Videos animiert. Siehe Mathe in Bewegung.
+               Komplexe Konzepte werden durch Plots und <span className="text-white font-mono text-xs">MANIM</span>-Videos animiert.
             </p>
          </Link>
 
@@ -52,7 +52,7 @@ export default function Home() {
             </div>
             <h3 className="text-white font-bold text-xl mb-2 group-hover:text-math-green transition-colors">Zusammenfassungen</h3>
          <p className="text-gray-400 text-sm leading-relaxed">
-            PDFs, die den Inhalt mit sauberem Latex zusammenfassen.
+            PDFs, die den Inhalt mit sauberem LaTeX zusammenfassen.
          </p>
          </div>
 
@@ -64,7 +64,7 @@ export default function Home() {
             </div>
             <h3 className="text-white font-bold text-xl mb-2 group-hover:text-math-purple transition-colors">Interaktive Quizzes</h3>
             <p className="text-gray-400 text-sm leading-relaxed">
-               Vom bloßen Auswendiglernen zum echten Begreifen. Teste deine Theoriesicherheit direkt im Browser.
+               Überprüfe dein Verständnis im Browser und erhalte sofortiges Feedback.
             </p>
          </Link>
 
@@ -100,13 +100,13 @@ export default function Home() {
             <div className="flex-1 space-y-4">
                 <h3 className="text-2xl md:text-3xl font-bold text-white">Hi, ich bin Cezar.</h3>
                 <p className="text-gray-400 leading-relaxed">
-                    Ich studiere Elektrotechnik (5. Semester) an der ETH. Weil Mathe in Vorlesungen oft abstrakt bleibt, habe ich <span className="text-white font-semibold">Nullset</span> gestartet: Ein persönliches Projekt mit dem Ziel, die neuesten Technologien von heute einzusetzen, um komplexe Zusammenhänge der Mathematik greifbar zu machen.
+                    Ich studiere Elektrotechnik (5. Semester) an der ETH. Weil Mathe in Vorlesungen oft abstrakt bleibt, habe ich <span className="text-white font-semibold">Nullset</span> gestartet: Ein persönliches Projekt mit dem Ziel, komplexe Theorie durch moderne Visualisierung sofort verständlich zu machen.
                 </p>
                 <p className="text-gray-400 leading-relaxed">
-                    Als ehemaliger Hilfsassistent für <span className="text-math-orange">Netzwerke und Schaltungen 1</span> und <Link href="/Kurse/Analysis_1" className="text-math-blue hover:text-math-blue/80 hover:underline transition-all">Analysis 1</Link> (betreut: 100+ Studierende) weiß ich: Klick macht es erst, wenn man die Intuition sieht. Deshalb setze ich auf computergenerierte Animationen (Manim) und direktes visuelles Feedback durch Latex Plots.
+                    Als ehemaliger Hilfsassistent für <span className="text-math-orange">Netzwerke und Schaltungen 1</span> und <Link href="/Kurse/Analysis_1" className="text-math-blue hover:text-math-blue/80 hover:underline transition-all">Analysis 1</Link> (betreut: 100+ Studierende) weiß ich: Klick macht es erst, wenn man die Intuition <em>sieht</em>. Deshalb setze ich auf computergenerierte Animationen (Manim) und Latex Plots statt auf textlastige Skripte.
                 </p>
                 <p className="text-gray-400 leading-relaxed">
-                    Ab Frühling 2026 unterrichte ich als TA für Signals & Systems II. Privat bin ich oft im Gym, beim Schwimmen oder höre Hörbücher bei langen Spaziergängen.
+                    Ab Frühling 2026 unterrichte ich als TA für Signals & Systems II. Wenn ich nicht am Lernen bin, bin ich oft im Gym, beim Schwimmen oder höre Hörbücher.
                 </p>
             </div>
          </div>

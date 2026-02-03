@@ -118,7 +118,7 @@ export default function Home() {
         <div className="p-4 rounded-lg border border-white/5 text-gray-300 text-xs font-mono leading-relaxed">
            Diese Website ist noch am Bauen. Features werden schrittweise veröffentlicht.
            <br/>
-           Vorschläge und Feedback sind jederzeit willkommen – nutze dazu gerne das <Link href="/Kontakt" className="text-gray-400 hover:text-math-blue underline decoration-gray-700 underline-offset-4 transition-colors">Kontaktformular</Link>.
+           Vorschläge und Feedback sind willkommen – nutze dazu gerne das <Link href="/Kontakt" className="text-gray-400 hover:text-math-blue underline decoration-gray-700 underline-offset-4 transition-colors">Kontaktformular</Link>.
         </div>
       </div>
 

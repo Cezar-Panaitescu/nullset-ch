@@ -6,6 +6,7 @@ import "./globals.css";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import { AdminProvider } from "./context/AdminContext";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 // 2. Configure Inter (The UI/Body)
 const inter = Inter({
@@ -49,6 +50,7 @@ export default function RootLayout({
             {children}
             <Footer />
         </AdminProvider>
+        <SpeedInsights />
       </body>
     </html>
   );

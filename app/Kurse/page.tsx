@@ -17,6 +17,53 @@ export default function KursePage() {
 
       <div className="w-full max-w-7xl grid grid-cols-1 xl:grid-cols-2 gap-8">
         
+        {/* Signale und Systeme II Card */}
+        <div className="group relative block w-full opacity-70 hover:opacity-100 transition-opacity duration-300">
+            <div className="relative group rounded-2xl border border-surface-light bg-surface overflow-hidden hover:border-math-blue/50 transition-all hover:shadow-[0_0_30px_rgba(0,160,224,0.1)] h-full">
+                <div className="flex flex-col md:flex-row h-full">
+                    {/* Left: Content */}
+                    <div className="p-8 md:w-3/5 flex flex-col justify-between">
+                        <div className="mb-6">
+                            <div className="inline-flex items-center gap-2 mb-2">
+                                <span className="px-2 py-1 rounded bg-math-purple/10 text-math-purple text-xs font-mono border border-math-purple/20">
+                                    Coming Soon
+                                </span>
+                            </div>
+                            <h2 className="text-3xl font-bold text-white mb-2 tracking-tight group-hover:text-math-blue transition-colors">
+                            Signals and Systems II
+                            </h2>
+                            <p className="text-gray-400 text-sm leading-relaxed">
+                            Time and frequency domain analysis, Modelling, Discrete Systems
+                            </p>
+                        </div>
+                        
+                        <div className="flex flex-col gap-3 grayscale opacity-60 pointer-events-none select-none items-start">
+                             {/* OPTION A: Link to Course (Disabled) */}
+                             <span 
+                                 className="px-5 py-2.5 bg-surface-light border border-white/10 text-gray-400 text-sm font-bold rounded inline-flex items-center justify-center cursor-not-allowed"
+                             >
+                                 COMING SOON
+                             </span>
+                             {/* OPTION B: Quiz Action */}
+                             <button className="px-5 py-2.5 border border-surface-light text-white text-sm font-bold rounded hover:bg-math-magenta/20 hover:border-math-magenta transition-all duration-300 ease-in-out flex items-center gap-2">
+                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                                START QUIZ
+                             </button>
+                        </div>
+                    </div>
+
+                    {/* Right: Image */}
+                    <div className="md:w-2/5 h-48 md:h-auto bg-black border-t md:border-t-0 md:border-l border-surface-light relative overflow-hidden flex items-center justify-center">
+                        <img 
+                            src="/images/Signals_and_Systems_2.png" 
+                            alt="Signale und Systeme II Visual" 
+                            className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+
         {/* Analysis I Card - Minimalist Hero Style */}
         <div className="group relative block w-full">
             <div className="relative group rounded-2xl border border-surface-light bg-surface overflow-hidden hover:border-math-blue/50 transition-all hover:shadow-[0_0_30px_rgba(0,160,224,0.1)] h-full">
@@ -125,53 +172,6 @@ export default function KursePage() {
                         <img 
                             src="/images/Netzwerke_und_Schaltungen I.png" 
                             alt="Netzwerke und Schaltungen I Visual" 
-                            className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500"
-                        />
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        {/* Signale und Systeme II Card */}
-        <div className="group relative block w-full opacity-70 hover:opacity-100 transition-opacity duration-300">
-            <div className="relative group rounded-2xl border border-surface-light bg-surface overflow-hidden hover:border-math-blue/50 transition-all hover:shadow-[0_0_30px_rgba(0,160,224,0.1)] h-full">
-                <div className="flex flex-col md:flex-row h-full">
-                    {/* Left: Content */}
-                    <div className="p-8 md:w-3/5 flex flex-col justify-between">
-                        <div className="mb-6">
-                            <div className="inline-flex items-center gap-2 mb-2">
-                                <span className="px-2 py-1 rounded bg-math-purple/10 text-math-purple text-xs font-mono border border-math-purple/20">
-                                    Coming Soon
-                                </span>
-                            </div>
-                            <h2 className="text-3xl font-bold text-white mb-2 tracking-tight group-hover:text-math-blue transition-colors">
-                            Signals and Systems II
-                            </h2>
-                            <p className="text-gray-400 text-sm leading-relaxed">
-                            Time and frequency domain analysis, Modelling, Discrete Systems
-                            </p>
-                        </div>
-                        
-                        <div className="flex flex-col gap-3 grayscale opacity-60 pointer-events-none select-none items-start">
-                             {/* OPTION A: Link to Course (Disabled) */}
-                             <span 
-                                 className="px-5 py-2.5 bg-surface-light border border-white/10 text-gray-400 text-sm font-bold rounded inline-flex items-center justify-center cursor-not-allowed"
-                             >
-                                 COMING SOON
-                             </span>
-                             {/* OPTION B: Quiz Action */}
-                             <button className="px-5 py-2.5 border border-surface-light text-white text-sm font-bold rounded hover:bg-math-magenta/20 hover:border-math-magenta transition-all duration-300 ease-in-out flex items-center gap-2">
-                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-                                START QUIZ
-                             </button>
-                        </div>
-                    </div>
-
-                    {/* Right: Image */}
-                    <div className="md:w-2/5 h-48 md:h-auto bg-black border-t md:border-t-0 md:border-l border-surface-light relative overflow-hidden flex items-center justify-center">
-                        <img 
-                            src="/images/Signals_and_Systems_2.png" 
-                            alt="Signale und Systeme II Visual" 
                             className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500"
                         />
                     </div>
